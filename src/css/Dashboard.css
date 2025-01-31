@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #ffea4f;
+  --primary-color: #ffe40d;
   --secondary-color: #555353;
   --accent-color: #fffea6;
   --text-color: #ffffff;
@@ -80,6 +80,8 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
+  text-align: center;
 }
 
 .sidebar .logout-btn:hover {
@@ -121,7 +123,7 @@
 
 .card h3 {
   margin-bottom: 15px;
-  color: var(--text-color);
+  color: #a67002;
 }
 
 .controls {
@@ -163,7 +165,7 @@ input[type="range"]::-webkit-slider-thumb {
 .confirm-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: var(--primary-color);
+  background-color: #a67002;
   color: var(--text-color);
   border: none;
   border-radius: 5px;

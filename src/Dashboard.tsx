@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 import '../src/css/Dashboard.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -11,6 +12,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { Link } from 'react-router-dom';
 
 const daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
@@ -65,20 +67,16 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="sidebar">
-        <h1>Dashboard</h1>
+        <h1 style={{color:'black'}}>Mr. Magus</h1>
+        <h2 style={{color:'black'}}>Dashboard</h2>
         <ul>
           <li>
-            <span className="icon"></span>
+            <span className='icon'></span>
             <h3><span>Proyectos</span></h3>
           </li>
           <li>
-            <span className="icon"></span>
-            <h3><span>Equipos</span></h3>
-          </li>
-          <li className="dropdown">
-            <span className="icon"></span>
+            <span className='icon'></span>
             <h3><span>Empresa</span></h3>
-            <span className="arrow"></span>
           </li>
           <li className="dropdown">
             <span className="icon"></span>
@@ -94,7 +92,7 @@ const Dashboard = () => {
             )}
           </li>
         </ul>
-        <button className="logout-btn">Cerrar Sesión</button>
+        <Link to="/" className="logout-btn">Cerrar Sesión</Link>
       </div>
 
       <div className="main-content">
@@ -102,7 +100,7 @@ const Dashboard = () => {
 
         <div className="cards">
           <div className="card">
-            <h3>Equipos</h3>
+            <h3>Equipo 1</h3>
             <CircularProgressbar
               value={progressData[currentDay].equipos}
               text={`${progressData[currentDay].equipos}%`}
@@ -115,7 +113,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="card">
-            <h3>Proyectos</h3>
+            <h3>Equipo 2</h3>
             <CircularProgressbar
               value={progressData[currentDay].proyectos}
               text={`${progressData[currentDay].proyectos}%`}
@@ -128,7 +126,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="card">
-            <h3>Empresa</h3>
+            <h3>Equipo 3</h3>
             <CircularProgressbar
               value={progressData[currentDay].empresa}
               text={`${progressData[currentDay].empresa}%`}
@@ -144,7 +142,7 @@ const Dashboard = () => {
 
         <div className="controls">
           <div className="control">
-            <label>Equipos</label>
+            <label>Equipo 1</label>
             <input
               type="range"
               min="0"
@@ -156,7 +154,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="control">
-            <label>Proyectos</label>
+            <label>Equipo 2</label>
             <input
               type="range"
               min="0"
@@ -168,7 +166,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="control">
-            <label>Empresa</label>
+            <label>Equipo 3</label>
             <input
               type="range"
               min="0"

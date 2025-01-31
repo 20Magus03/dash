@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import '../src/css/Formulario.css';
+import React from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Login = () => {
   return (
     <div className="container">
       <div className="form-box">
+        <h1>Mr. Magus</h1>
         <h2 className="title">INICIO DE SESION</h2>
         <form onSubmit={handleLogin}>
           <div className="input-group">
