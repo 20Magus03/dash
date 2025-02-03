@@ -4,7 +4,7 @@ import Registro from './Registro';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import TokenInput from './Touken';
-
+import ClientDashboard from './ClientDashboard';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Touken" element={<TokenInput />} />
+        <Route path="/ClientDashboard" element={<ClientDashboard />} />
 
 
       </Routes>

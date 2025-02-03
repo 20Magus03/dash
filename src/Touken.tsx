@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./css/Token.css"; 
+import "./css/token.css"; 
 
 const TokenInput: React.FC = () => {
   const [token, setToken] = useState("");
@@ -43,10 +43,11 @@ const TokenInput: React.FC = () => {
           onChange={handleChange}
           maxLength={6}
         />
-        <Link to="/dashboard" className="boton">
+        <Link to="/ClientDashboard" className="boton">
           Verificar
         </Link>
       </div>
+
     </div>
   );
 };

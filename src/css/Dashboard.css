@@ -10,20 +10,29 @@
 
 .dashboard-container {
   display: flex;
-  flex-direction: row;
   height: 100vh;
   background-color: var(--background-color);
   font-family: 'Arial', sans-serif;
+  overflow: hidden;
 }
 
 .sidebar {
-  width: 300px;
+  width: 250px; /* Ajustado para que no ocupe tanto espacio */
+  height: 100vh;
   background-color: var(--primary-color);
   color: var(--text-color);
   padding: 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Sidebar fijo */
+  z-index: 1000; /* Asegura que siempre esté encima del contenido */
+  transition: transform 0.3s ease; /* Efecto deslizante */
+  transform: translateX(-100%); /* Inicialmente oculto */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Se muestra cuando tiene la clase 'open' */
 }
 
 .sidebar h1 {
@@ -68,7 +77,6 @@
 .sidebar .dropdown-list li:hover {
   background-color: var(--hover-color);
   color: var(--text-color);
-  overflow-y: auto;
 }
 
 .sidebar .logout-btn {
@@ -91,8 +99,10 @@
 .main-content {
   flex: 1;
   padding: 30px;
+  margin-left: 250px; /* Para que el contenido no se superponga con el sidebar */
   overflow-y: auto;
   background-color: var(--background-color);
+  transition: margin-left 0.3s ease; /* Movimiento suave del contenido */
 }
 
 .main-content h2 {
@@ -198,7 +208,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
+ 
   overflow: hidden;
 }
 
@@ -206,38 +216,6 @@ html {
   display: flex;
   height: 100vh;
   overflow: hidden;
-}
-
-.sidebar {
-  width: 300px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--primary-color);
-  padding: 20px;
-}
-
-.main-content {
-  flex: 1;
-  overflow-y: auto;
-  background-color: var(--background-color);
-  padding: 20px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  padding: 20px;
-  border-radius: 8px;
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
@@ -248,4 +226,22 @@ html {
   z-index: 1000;
   max-height: 200px;
   overflow-y: auto;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000; /* Para asegurarse de que el botón esté encima del sidebar */
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-menu:hover {
+  background-color: var(--hover-color);
 }

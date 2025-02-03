@@ -31,6 +31,7 @@ const Dashboard = () => {
   );
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Controla la apertura y cierre del sidebar
 
   const handleSliderChange = (key: string, value: number) => {
     setProgressData((prev) =>
@@ -64,18 +65,26 @@ const Dashboard = () => {
     setIsDropdownOpen(false);
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev); // Cambia el estado para mostrar u ocultar el sidebar
+  };
+
   return (
     <div className="dashboard-container">
-      <div className="sidebar">
-        <h1 style={{color:'black'}}>Mr. Magus</h1>
-        <h2 style={{color:'black'}}>Dashboard</h2>
+      <button className="hamburger-menu" onClick={toggleSidebar}>
+        ☰
+      </button>
+
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <h1 style={{ color: 'black' }}>Mr. Magus</h1>
+        <h2 style={{ color: 'black' }}>Dashboard</h2>
         <ul>
           <li>
-            <span className='icon'></span>
+            <span className="icon"></span>
             <h3><span>Proyectos</span></h3>
           </li>
           <li>
-            <span className='icon'></span>
+            <span className="icon"></span>
             <h3><span>Empresa</span></h3>
           </li>
           <li className="dropdown">
